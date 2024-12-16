@@ -71,7 +71,11 @@ class LastCall extends Mailable
             ->attach(public_path('images/email-image.png'), [
                 'as' => 'email-image.png',
                 'mime' => 'image/png',
-            ]);
+            ])
+            ->withSwiftMessage(function ($message) {
+                $headers = $message->getHeaders();
+                $headers->addTextHeader('Category', 'business-proposal'); // Add the 'Category' header
+            });
     }
 
     /**

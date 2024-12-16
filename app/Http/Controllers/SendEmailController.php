@@ -48,8 +48,7 @@ if ($existingEmail) {
     $existingEmail->update([
         $statusField => 'sent',
     ]);
-
-    return redirect()->back()->with('success', "Email sequence {$sequence} status updated successfully.");
+    
     } else {
         // If no existing record, set initial status values
         $status1 = $status2 = $status3 = $status4 = null;
