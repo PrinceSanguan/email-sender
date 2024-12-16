@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>You're Invited</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What {{ $niche }}s Like You Are Achieving</title>
 </head>
 <body style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
     <table style="width: 100%; margin: 0 auto; border-collapse: collapse; background-color: #f4f4f4; padding: 0;">
@@ -11,7 +13,7 @@
                     <!-- Header Section -->
                     <tr style="background-color: #007BFF; color: #ffffff;">
                         <td style="padding: 20px; text-align: center;">
-                            <h1 style="margin: 0; font-size: 24px; font-weight: bold; letter-spacing: 0.5px;">You’re Invited!</h1>
+                            <h1 style="margin: 0; font-size: 24px; font-weight: bold; letter-spacing: 0.5px;">What {{ $niche }}s Like You Are Achieving</h1>
                         </td>
                     </tr>
                     <!-- Body Content -->
@@ -19,30 +21,34 @@
                         <td style="padding: 30px; font-size: 16px; line-height: 1.6; color: #333333;">
                             <p style="margin-bottom: 20px;">Hi <strong>{{ $name }}</strong>,</p>
                             <p style="margin-bottom: 20px;">
-                                I came across your <strong>{{ $niche }}</strong> business and wanted to ask—are you looking for ways to attract more customers right now?
+                                I wanted to share some quick results from businesses like yours using tools similar to what Choros.io offers.
                             </p>
                             <p style="margin-bottom: 20px;">
-                                I’m Ethan, and I run <strong>Choros.io</strong>, a platform designed to help businesses like yours grow smarter and faster.
+                                Here’s an example of what’s possible:
                             </p>
-                            <p style="margin-bottom: 20px;">
-                                Before you think this is just another sales pitch, hear me out: I’m so confident Choros.io can help you that we’re inviting just <strong>100 businesses</strong> to our exclusive beta program launching on <strong>January 1st</strong>.
-                            </p>
-                            <p style="margin-bottom: 10px;"><strong>We’ll help you:</strong></p>
                             <ul style="margin-bottom: 20px; padding-left: 20px; color: #555;">
-                                <li style="margin-bottom: 10px;">✅ Build a professional website in under 1 minute—no tech skills needed.</li>
-                                <li style="margin-bottom: 10px;">✅ Solve the difficulties of getting online using tools designed specifically for your niche.</li>
-                                <li>✅ Get ahead of your competitors and grow your customer base.</li>
+                                <li style="margin-bottom: 10px;">✅ A <strong>{{ $niche }}</strong> business generated <strong>20% more leads</strong> within their first month.</li>
+                                <li style="margin-bottom: 10px;">✅ A small team saved <strong>10+ hours a week</strong> by automating staff rotation and customer bookings.</li>
+                                <li>✅ And the best part? You don’t need a big budget or any technical skills to get results.</li>
                             </ul>
                             <p style="margin-bottom: 20px;">
-                                These 100 spots will not last long. So click the button below to secure your spot in the beta program!
+                                At Choros.io, we help <strong>{{ $niche }}s</strong>:
+                            </p>
+                            <ul style="margin-bottom: 20px; padding-left: 20px; color: #555;">
+                                <li style="margin-bottom: 10px;">✅ Build professional, fast websites.</li>
+                                <li style="margin-bottom: 10px;">✅ Solve the difficulties of getting online with a website that does what they <strong>NEED</strong> efficiently, using tools designed specifically for them.</li>
+                                <li>✅ Start seeing measurable growth—fast.</li>
+                            </ul>
+                            <p style="margin-bottom: 20px;">
+                                If this sounds like something your business could benefit from, don't wait. We’re still offering <strong>100 beta spots</strong> for businesses like yours.
                             </p>
                             <p style="text-align: center; margin-bottom: 30px;">
                                 <a href="https://choros.io/" 
                                    style="display: inline-block; padding: 12px 30px; font-size: 16px; font-weight: bold; color: #ffffff; background-color: #007BFF; text-decoration: none; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0, 123, 255, 0.4);">
-                                    Claim Your Beta Spot
+                                    Claim Your Spot Here
                                 </a>
                             </p>
-                            <p style="margin-bottom: 10px;">Excited to help you succeed,</p>
+                            <p style="margin-bottom: 10px;">Looking forward to seeing your success,</p>
                             <p style="margin-bottom: 0;"><strong>Ethan</strong></p>
                             <p style="margin-top: 0; color: #555;">The Choros.io Team</p>
                         </td>

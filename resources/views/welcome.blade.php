@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-8 py-16">
         <!-- Header -->
         <div class="text-center mb-10">
             <h1 class="text-4xl font-bold text-gray-800 mb-2">Email Campaign Manager</h1>
@@ -65,10 +65,10 @@
                         </label>
                         <select class="select select-bordered w-full" name="sequence" required>
                             <option value="" disabled selected>--select--</option>
-                            <option value="Email 1: Introduction – You're Invited">Email 1: Introduction – You're Invited</option>
-                            <option value="2. Quick Follow-Up – RE: Beta Invitation">2. Quick Follow-Up – RE: Beta Invitation</option>
-                            <option value="3. Social Proof – Real Results">3. Social Proof – Real Results</option>
-                            <option value="4. Final Call – Last Chance">4. Final Call – Last Chance</option>
+                            <option value="1">1. Introduction – You're Invited</option>
+                            <option value="2">2. Quick Follow-Up – RE: Beta Invitation</option>
+                            <option value="3">3. Social Proof – Real Results</option>
+                            <option value="4">4. Final Call – Last Chance</option>
                         </select>
                     </div>
                 
@@ -89,19 +89,39 @@
                                 <th>Name</th>
                                 <th>Email sender</th>
                                 <th>Email receiver</th>
-                                <th>Sequence</th>
-                                <th>Status</th>
+                                <th>Introduction</th>
+                                <th>Quick Follow-up</th>
+                                <th>Social Proof</th>
+                                <th>Final Call</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if ($scrapEmails)
                                 @foreach ($scrapEmails as $scrapEmail)
                                     <tr>
-                                        <td>{{$scrapEmail->name}}</td>
+                                        <td>{{ $scrapEmail->name }}</td>
                                         <td>{{ $scrapEmail->{'email-sender'} }}</td>
                                         <td>{{ $scrapEmail->{'email-receiver'} }}</td>
-                                        <td>{{$scrapEmail->sequence}}</td>
-                                        <td><span class="badge badge-success">Sent</span></td>
+                                        <td>
+                                            <span class="badge {{ $scrapEmail->status1 === 'sent' ? 'badge-success' : 'badge-danger' }}">
+                                                {{ $scrapEmail->status1 === 'sent' ? 'Sent' : 'Not Sent' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge {{ $scrapEmail->status2 === 'sent' ? 'badge-success' : 'badge-danger' }}">
+                                                {{ $scrapEmail->status2 === 'sent' ? 'Sent' : 'Not Sent' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge {{ $scrapEmail->status3 === 'sent' ? 'badge-success' : 'badge-danger' }}">
+                                                {{ $scrapEmail->status3 === 'sent' ? 'Sent' : 'Not Sent' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge {{ $scrapEmail->status4 === 'sent' ? 'badge-success' : 'badge-danger' }}">
+                                                {{ $scrapEmail->status4 === 'sent' ? 'Sent' : 'Not Sent' }}
+                                            </span>
+                                        </td>
                                     </tr>
                                 @endforeach
                             @endif        

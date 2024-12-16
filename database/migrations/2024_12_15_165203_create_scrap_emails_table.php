@@ -15,9 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email-sender');
-            $table->string('email-receiver')->unique();
+            $table->string('email-receiver');
             $table->string('niche');
             $table->string('sequence');
+            $table->string('status1')->nullable();
+            $table->string('status2')->nullable();
+            $table->string('status3')->nullable();
+            $table->string('status4')->nullable();
             $table->timestamps();
         });
     }

@@ -12,5 +12,9 @@ class ScrapEmail extends Model
         'email-receiver',
         'niche',
         'sequence',
+        'status1',
+        'status2',
+        'status3',
+        'status4',
     ];
 }
