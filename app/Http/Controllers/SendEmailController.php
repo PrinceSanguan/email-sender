@@ -21,6 +21,7 @@ class SendEmailController extends Controller
 
     public function sendEmail(Request $request)
     {
+
         // Validate the request
         $request->validate([
             'email-sender' => 'required',
@@ -29,29 +30,30 @@ class SendEmailController extends Controller
             'name' => 'required',
             'sequence' => 'required|integer|between:1,4', // Ensure sequence is valid
         ]);
-    
+
         $emailReceiver = $request->input('email-receiver');
         $sequence = $request->input('sequence');
-    
+
         // Check if the email receiver already exists in the ScrapEmail table
         $existingEmail = ScrapEmail::where('email-receiver', $emailReceiver)->first();
-    
-        if ($existingEmail) {
-            // Check if the corresponding status is already set
-            $statusField = "status{$sequence}";
-            if ($existingEmail->{$statusField} === 'sent') {
-                return redirect()->back()->with('error', "Email sequence {$sequence} is already sent.");
-            }
-    
-            // Update the existing record's status
-            $existingEmail->update([
-                $statusField => 'sent',
-            ]);
-        }
-    
-        // If no existing record, create a new one
+
+if ($existingEmail) {
+    // Check if the corresponding status is already set
+    $statusField = "status{$sequence}";
+    if ($existingEmail->{$statusField} === 'sent') {
+        return redirect()->back()->with('error', "Email sequence {$sequence} is already sent.");
+    }
+
+    // Update the existing record's status
+    $existingEmail->update([
+        $statusField => 'sent',
+    ]);
+
+    return redirect()->back()->with('success', "Email sequence {$sequence} status updated successfully.");
+    } else {
+        // If no existing record, set initial status values
         $status1 = $status2 = $status3 = $status4 = null;
-    
+
         // Set the appropriate status based on the sequence
         switch ($sequence) {
             case 1:
@@ -67,7 +69,8 @@ class SendEmailController extends Controller
                 $status4 = 'sent';
                 break;
         }
-    
+
+        // Create a new record in the ScrapEmail table
         ScrapEmail::create([
             'name' => $request->input('name'),
             'email-sender' => $request->input('email-sender'),
@@ -79,6 +82,7 @@ class SendEmailController extends Controller
             'status3' => $status3,
             'status4' => $status4,
         ]);
+    }
 
         // Send the email based on sequence
         if ($sequence == 1) {

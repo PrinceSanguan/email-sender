@@ -7,6 +7,9 @@
     <title>Email Sender</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 </head>
 <body class="bg-gray-50">
     <div class="container mx-auto px-8 py-16">
@@ -82,13 +85,13 @@
             <!-- Table Card -->
             <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="overflow-x-auto">
-                    <table class="table table-zebra w-full">
+                    <table id="scrapEmailsTable" class="table table-zebra w-full">
                         <!-- head -->
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email sender</th>
-                                <th>Email receiver</th>
+                                <th>Email Sender</th>
+                                <th>Email Receiver</th>
                                 <th>Introduction</th>
                                 <th>Quick Follow-up</th>
                                 <th>Social Proof</th>
@@ -132,6 +135,9 @@
         </div>
     </div>
 
+    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         @if(session('success'))
@@ -149,6 +155,17 @@
             confirmButtonText: "OK",
         });
         @endif
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#scrapEmailsTable').DataTable({
+                // Optional: Customize DataTables features
+                "pageLength": 10,
+                "lengthMenu": [5, 10, 25, 50],
+                "searching": true,
+                "ordering": true,
+            });
+        });
     </script>
 </body>
 </html>
